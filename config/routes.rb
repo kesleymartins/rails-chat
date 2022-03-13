@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
- root 'page#home'
+  root 'page#home'
 
   get 'home', to: 'page#home'
   get 'about', to: 'page#about'
+
+  resources :rooms
 
   devise_for :users
   devise_scope :user do
