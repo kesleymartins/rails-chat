@@ -6,6 +6,10 @@ class RoomsController < ApplicationController
     @users = User.all.all_except(current_user)
   end
 
+  def show
+    @room = Room.find(params[:id])
+  end
+
   def create
     @room = Room.create(name: params[:room][:name])
   end
