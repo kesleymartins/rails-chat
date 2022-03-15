@@ -1,0 +1,4 @@
+<%= form_with(model: @room, remote: true) do |form| %>
+  <%= form.text_field :name, autocomplete: 'off' %>
+  <%= form.submit data: { disable_with: false } %>
+<% end %>
