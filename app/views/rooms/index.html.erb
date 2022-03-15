@@ -4,6 +4,7 @@
 <div id="users">
   <h3>Users</h3>
   <% @users.each do |user| %>
+    <%= render 'users/user', user: user %>
   <% end %>
 </div>
 
@@ -11,5 +12,7 @@
 <div id="rooms">
   <h3>Rooms</h3>
   <% @rooms.each do |room| %>
+    <%= render 'rooms/room', room: room %>
   <% end %>
 </div>
+
