@@ -1,0 +1,4 @@
+<%= form_with(model: [room, message], remote: true) do |form| %>
+  <%= form.text_field :body %>
+  <%= form.submit 'Send', data: { disable_with: true } %>
+<% end %>
