@@ -1,10 +1,33 @@
-<h1>Page#home</h1>
-<p>Find me in app/views/page/home.html.erb</p>
 
-<% if current_user %>
-  <%= button_to 'Log_out', destroy_user_session_path, method: :delete %>
-  <%= link_to 'Start Chatting', rooms_path %>
-<% else %>
-  <%= link_to 'login', new_user_session_path %>
-  <%= link_to 'Sign Up', new_user_registration_path %>
-<% end %>
+<div class="card">
+  <div class="card-header">
+    <div class="card-header-title">
+      <h2 class="subtitle is-3">How to start chatting</h2>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+      <div class='columns is-mobile'>
+        <div class='column is-5'>
+          <div class='list'>
+            <ul>
+              <li class='list-item'>
+                Create an account in the button that is in the navbar.
+              </li>
+              <li class='list-item'>
+                Login in your account.
+              </li>
+              <li class='list-item'>
+                Click in the button start chatting that is also in the navbar.
+              </li>
+              <li class='list-item'>
+                Now happy chatting ;)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
