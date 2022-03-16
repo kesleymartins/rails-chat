@@ -1,0 +1,22 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <%= link_to 'Rails Chat', root_path, class: 'title' %>
+    </div>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user %>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'button is-warning' %>
+          <% else %>
+            <%= link_to 'login', new_user_session_path, class: 'button is-light' %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'button is-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
