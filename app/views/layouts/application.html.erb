@@ -12,8 +12,17 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <div class="container">
+      <section class="section">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </section>
+
+      <section class="section">
+          <%= yield %>
+      </section>
+    </div>
+    
   </body>
 </html>
