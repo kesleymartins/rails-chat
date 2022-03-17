@@ -14,15 +14,12 @@
     <%= render 'layouts/navbar' %>
 
     <div class="container">
-      <section class="section">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </section>
+      <%= render 'layouts/flash_messages' %>
 
       <section class="section">
           <%= yield %>
       </section>
     </div>
-    
+
   </body>
 </html>
