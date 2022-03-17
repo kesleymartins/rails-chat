@@ -1,19 +1,26 @@
-<h1>Rooms#index</h1>
+<aside class="column is-3">
+    <div class="panel">
+        <p class="panel-heading has-text-centered">Chatter</p>
 
-<%= turbo_stream_from 'users' %>
-<div id="users">
-  <h3>Users</h3>
-  <% @users.each do |user| %>
-    <%= render 'users/user', user: user %>
-  <% end %>
-</div>
+        <p class="panel-tabs">
+          <a class="is-active">Users</a>
+          <a>Public Rooms</a>
+        </p>
 
-<%= turbo_stream_from 'rooms' %>
-<div id="rooms">
-  <h3>Rooms</h3>
-  <% @rooms.each do |room| %>
-    <%= render 'rooms/room', room: room %>
-  <% end %>
-</div>
+        <%= turbo_stream_from 'users' %>
+        <div id="users" class="is-active">
+          <% @users.each do |user| %>
+            <%= render 'users/user', user: user %>
+          <% end %>
+        </div>
 
-<%= render 'rooms/form', room: @room %>
+        <%= turbo_stream_from 'rooms' %>
+        <div id="rooms">
+          <% @rooms.each do |room| %>
+            <%= render 'rooms/room', room: room %>
+          <% end %>
+        </div>
+
+        <%= render 'rooms/form', room: @room %>
+    </div>
+</aside>
