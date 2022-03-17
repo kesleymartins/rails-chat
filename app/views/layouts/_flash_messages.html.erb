@@ -1,0 +1,17 @@
+<% if flash.any? %>
+  <section class="section">
+    <% if notice %>
+      <div class="notification is-success is-light">
+        <button class="delete"></button>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="notification is-danger">
+        <button class="delete"></button>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+  </section>
+<% end %>
