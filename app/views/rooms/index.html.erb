@@ -3,8 +3,12 @@
         <p class="panel-heading has-text-centered">Chatter</p>
 
         <p class="panel-tabs">
-          <a data-chatter-tabs-target="usersTab">Users</a>
-          <a data-chatter-tabs-target="roomsTab" class="is-active">Public Rooms</a>
+          <a data-chatter-tabs-target="usersTab" data-action="click->chatter-tabs#activateTab" class="is-active">
+            Users
+          </a>
+          <a data-chatter-tabs-target="roomsTab" data-action="click->chatter-tabs#activateTab">
+            Public Rooms
+          </a>
         </p>
 
         <%= turbo_stream_from 'users' %>
