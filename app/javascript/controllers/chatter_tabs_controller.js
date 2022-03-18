@@ -12,4 +12,23 @@ export default class extends Controller {
       this.usersTarget.classList.add('is-hidden')
     }
   }
+
+  activateTab(event) {
+    if (event.target.classList.contains('is-active')) {
+      return
+    }
+
+    this.toggleTabs()
+    this.toggleContent()
+  }
+
+  toggleTabs() {
+    this.roomsTabTarget.classList.toggle('is-active')
+    this.usersTabTarget.classList.toggle('is-active')
+  }
+
+  toggleContent() {
+    this.roomsTarget.classList.toggle('is-hidden')
+    this.usersTarget.classList.toggle('is-hidden')
+  }
 }
