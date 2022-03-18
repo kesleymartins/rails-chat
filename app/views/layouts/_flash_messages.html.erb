@@ -1,15 +1,15 @@
 <% if flash.any? %>
-  <section class="section">
+  <section class="section" data-controller="flash-messages">
     <% if notice %>
-      <div class="notification is-success is-light">
-        <button class="delete"></button>
-        <p><%= notice %></p>
+      <div data-flash-messages-target="deleteButton" class="notification is-success is-light">
+        <button data-action="click->flash-messages#removeFlashMessage"class="delete"></button>
+        <p><%= notice %></p> { notice }
       </div>
     <% end %>
 
     <% if alert %>
-      <div class="notification is-danger">
-        <button class="delete"></button>
+      <div data-flash-messages-target="deleteButton" class="notification is-danger">
+        <button data-action="click->flash-messages#removeFlashMessage" class="delete"></button>
         <p><%= alert %></p>
       </div>
     <% end %>
