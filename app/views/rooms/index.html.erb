@@ -1,21 +1,21 @@
-<aside class="column is-3">
+<aside class="column is-3" data-controller="chatter-tabs">
     <div class="panel">
         <p class="panel-heading has-text-centered">Chatter</p>
 
         <p class="panel-tabs">
-          <a class="is-active">Users</a>
-          <a>Public Rooms</a>
+          <a data-chatter-tabs-target="usersTab">Users</a>
+          <a data-chatter-tabs-target="roomsTab" class="is-active">Public Rooms</a>
         </p>
 
         <%= turbo_stream_from 'users' %>
-        <div id="users" class="is-active">
+        <div data-chatter-tabs-target="users" id="users">
           <% @users.each do |user| %>
             <%= render 'users/user', user: user %>
           <% end %>
         </div>
 
         <%= turbo_stream_from 'rooms' %>
-        <div id="rooms">
+        <div data-chatter-tabs-target="rooms" id="rooms">
           <% @rooms.each do |room| %>
             <%= render 'rooms/room', room: room %>
           <% end %>
