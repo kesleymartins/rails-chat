@@ -33,6 +33,7 @@
     <div id="current_room" class="column">
       <div class="panel">
         <p class="panel-heading has-text-centered"> <%= @current_room.name %> </p>
+        <%= turbo_stream_from @current_room %>
         <div id="messages" class="panel-block limit-height">
           <% @messages.each do |message| %>
             <%= render 'messages/message', message: message %>
