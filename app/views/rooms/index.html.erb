@@ -29,10 +29,12 @@
       </div>
   </aside>
 
-  <div class="column">
-    <div class="panel">
-      <p class="panel-heading has-text-centered"> <%= @current_room.name %> </p>
-      <div class="panel block limit-height"> </div>
+  <% if defined?(@current_room) %>
+    <div class="column">
+      <div class="panel">
+        <p class="panel-heading has-text-centered"> <%= @current_room.name %> </p>
+        <div class="panel block limit-height"> </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
