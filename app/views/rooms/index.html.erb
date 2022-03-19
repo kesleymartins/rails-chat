@@ -12,14 +12,14 @@
         </p>
 
         <%= turbo_stream_from 'users' %>
-        <div data-chatter-tabs-target="users" id="users">
+        <div data-chatter-tabs-target="users" id="users" class="limit-height">
           <% @users.each do |user| %>
             <%= render 'users/user', user: user %>
           <% end %>
         </div>
 
         <%= turbo_stream_from 'rooms' %>
-        <div data-chatter-tabs-target="rooms" id="rooms">
+        <div data-chatter-tabs-target="rooms" id="rooms" class="limit-height">
           <% @rooms.each do |room| %>
             <%= render 'rooms/room', room: room %>
           <% end %>
