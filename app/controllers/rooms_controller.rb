@@ -7,7 +7,14 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
+    @room = Room.new
+
+    @rooms = Room.all.public_rooms
+    @users = User.all.all_except(current_user)
+
+    @current_room = Room.find(params[:id])
+
+    render 'index'
   end
 
   def create
