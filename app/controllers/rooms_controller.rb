@@ -10,11 +10,13 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.new
+    @message = Message.new
 
     @rooms = Room.all.public_rooms
     @users = User.all.all_except(current_user)
 
     @current_room = Room.find(params[:id])
+    @messages = @current_room.messages.order(created_at: :asc)
 
     render 'index'
   end
