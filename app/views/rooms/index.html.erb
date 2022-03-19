@@ -1,30 +1,38 @@
-<aside class="column is-4" data-controller="chatter-tabs">
+<div class="columns">
+  <aside class="column is-4" data-controller="chatter-tabs">
+      <div class="panel">
+          <p class="panel-heading has-text-centered">Chatter</p>
+
+          <p class="panel-tabs">
+            <a data-chatter-tabs-target="usersTab" data-action="click->chatter-tabs#activateTab" class="is-active">
+              Users
+            </a>
+            <a data-chatter-tabs-target="roomsTab" data-action="click->chatter-tabs#activateTab">
+              Public Rooms
+            </a>
+          </p>
+
+          <%= turbo_stream_from 'users' %>
+          <div data-chatter-tabs-target="users" id="users" class="limit-height">
+            <% @users.each do |user| %>
+              <%= render 'users/user', user: user %>
+            <% end %>
+          </div>
+
+          <%= turbo_stream_from 'rooms' %>
+          <div data-chatter-tabs-target="rooms" id="rooms" class="limit-height">
+            <%= render 'rooms/form', room: @room %>
+            <% @rooms.each do |room| %>
+              <%= render 'rooms/room', room: room %>
+            <% end %>
+          </div>
+      </div>
+  </aside>
+
+  <div class="column">
     <div class="panel">
-        <p class="panel-heading has-text-centered">Chatter</p>
-
-        <p class="panel-tabs">
-          <a data-chatter-tabs-target="usersTab" data-action="click->chatter-tabs#activateTab" class="is-active">
-            Users
-          </a>
-          <a data-chatter-tabs-target="roomsTab" data-action="click->chatter-tabs#activateTab">
-            Public Rooms
-          </a>
-        </p>
-
-        <%= turbo_stream_from 'users' %>
-        <div data-chatter-tabs-target="users" id="users" class="limit-height">
-          <% @users.each do |user| %>
-            <%= render 'users/user', user: user %>
-          <% end %>
-        </div>
-
-        <%= turbo_stream_from 'rooms' %>
-        <div data-chatter-tabs-target="rooms" id="rooms" class="limit-height">
-          <%= render 'rooms/form', room: @room %>
-          <% @rooms.each do |room| %>
-            <%= render 'rooms/room', room: room %>
-          <% end %>
-        </div>
-
+      <p class="panel-heading has-text-centered"> <%= @current_room.name %> </p>
+      <div class="panel block limit-height"> </div>
     </div>
-</aside>
+  </div>
+</div>
