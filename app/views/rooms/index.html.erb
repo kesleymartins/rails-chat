@@ -30,10 +30,17 @@
   </aside>
 
   <% if defined?(@current_room) %>
-    <div class="column">
+    <div id="current_room" class="column">
       <div class="panel">
         <p class="panel-heading has-text-centered"> <%= @current_room.name %> </p>
-        <div class="panel block limit-height"> </div>
+        <div id="messages" class="panel-block limit-height">
+          <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <% end %>
+        </div>
+        <div class="panel-block ">
+          <%= render 'messages/form' %>
+        </div>
       </div>
     </div>
   <% end %>
