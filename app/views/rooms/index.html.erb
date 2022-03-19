@@ -1,4 +1,4 @@
-<aside class="column is-3" data-controller="chatter-tabs">
+<aside class="column is-4" data-controller="chatter-tabs">
     <div class="panel">
         <p class="panel-heading has-text-centered">Chatter</p>
 
@@ -20,11 +20,11 @@
 
         <%= turbo_stream_from 'rooms' %>
         <div data-chatter-tabs-target="rooms" id="rooms" class="limit-height">
+          <%= render 'rooms/form', room: @room %>
           <% @rooms.each do |room| %>
             <%= render 'rooms/room', room: room %>
           <% end %>
         </div>
 
-        <%= render 'rooms/form', room: @room %>
     </div>
 </aside>
