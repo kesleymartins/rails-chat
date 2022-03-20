@@ -1,4 +1,6 @@
-<%= form_with(model: [@current_room, @message], remote: true) do |form| %>
-  <%= form.text_field :body %>
-  <%= form.submit 'Send', data: { disable_with: true } %>
+<%= form_with(model: [@current_room, @message], remote: true, class: 'field') do |form| %>
+  <div class="panel-block">
+    <%= form.text_field :body, autocomplete: 'off', class: 'input mr-2' %>
+    <%= form.submit 'Send', data: { disable_with: true }, class: 'button is-primary' %>
+  </div>
 <% end %>
